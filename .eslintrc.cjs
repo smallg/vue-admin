@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
     node: true,
-    jest: true
+    jest: true,
   },
   parser: 'vue-eslint-parser',
   parserOptions: {
@@ -12,14 +12,14 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     jsxPragma: 'React',
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     }
   },
   extends: [
     'eslint:recommended',
     'plugin:vue/vue3-essential',
     'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
   ],
   plugins: ['@typescript-eslint', 'vue', 'prettier'],
   rules: {
@@ -30,7 +30,16 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-unexpected-multiple': 'off',
     'no-useless-escape': 'off',
-
+    'comma-dangle': [
+      'error',
+      {
+        arrays: 'always-multiline',
+        objects: 'always',
+        imports: 'never',
+        exports: 'never',
+        functions: 'always-multiline',
+      },
+    ],
     // prettier
     'prettier/prettier': 'error',
 
@@ -46,6 +55,6 @@ module.exports = {
     'vue/multi-word-component-names': 'off',
     'vue/script-setup-uses-vars': 'error',
     'vue/no-mutating-props': 'off',
-    'vue/attribute-hyphenation': 'off'
+    'vue/attribute-hyphenation': 'off',
   }
 };
