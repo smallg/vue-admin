@@ -28,9 +28,8 @@ module.exports = {
     'no-multiple-empty-lines': ['warn', { max: 1 }],
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-unexpected-multiple': 'error',
+    'no-unexpected-multiple': 'off',
     'no-useless-escape': 'off',
-    'no-unexpected-multiline': 'off',
 
     // prettier
     'prettier/prettier': 'error',
