@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { reactive } from 'vue';
+import SvgIcon from '@/components/SvgIcon/index.vue';
 
 const form = reactive({
   name: '',
@@ -12,11 +13,13 @@ const form = reactive({
   desc: '',
 });
 
-const onSubmit = () => {
+const onSubmit = (): void => {
   console.log(form);
 };
 </script>
 <template>
+  <svg-icon name="phone" color="pink" width="20px" height="20px"></svg-icon>
+
   <el-form :model="form" label-width="120px">
     <el-form-item label="Activity name">
       <el-input v-model="form.name" />
