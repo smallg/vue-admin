@@ -1,15 +1,16 @@
-import SvgIcon from './SvgIcon/index.vue';
-import Pagination from './Pagination/index.vue';
 
-const allGlobalComponent: any = {
-  SvgIcon,
-  Pagination,
-};
+import type { App } from 'vue';
+import * as components from './components';
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
-export default {
-  install(app: any) {
-    Object.keys(allGlobalComponent).forEach((key) => {
-      app.component(key, allGlobalComponent[key]);
-    });
-  },
-};
+const install = function (app: App) {
+  Object.entries(components).forEach(([key, value]) => {
+    app.component(key, value)
+  })
+  for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+    app.component(key, component)
+  }
+}
+
+export default install
+export * from './components'

@@ -10,6 +10,8 @@ import 'virtual:svg-icons-register';
 import globalComponent from '@/components';
 import '@/styles/index.scss';
 import router from './router';
+import  pinia from './store';
+import './permission';
 
 const app = createApp(App);
 app.use(ElementPlus, {
@@ -18,5 +20,6 @@ app.use(ElementPlus, {
 // app.component('SvgIcon', SvgIcon);
 app.use(globalComponent);
 app.use(router);
+app.use(pinia);
 // console.log(import.meta.env);
 app.mount('#app');

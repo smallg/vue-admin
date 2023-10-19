@@ -1,6 +1,6 @@
 import { fileURLToPath, URL } from 'node:url';
 import path from 'path';
-import {UserConfigExport, ConfigEnv } from 'vite';
+import { UserConfigExport, ConfigEnv, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
@@ -9,10 +9,17 @@ import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 import { viteMockServe } from 'vite-plugin-mock';
 
 // https://vitejs.dev/config/
-export default ({ command }: ConfigEnv): UserConfigExport => {
+export default ({ command, mode }: ConfigEnv): UserConfigExport => {
+  const env = loadEnv(mode, process.cwd())
   return {
     plugins: [
-      vue(),
+      vue({
+        template: {
+          compilerOptions: {
+            isCustomElement: (tag) => ['h1'].includes(tag),
+          },
+        },
+      }),
       AutoImport({
         resolvers: [ElementPlusResolver()],
       }),
@@ -37,6 +44,16 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
         scss: {
           javascriptEnabled: true,
           additionalData: '@import "./src/styles/variable.scss";',
+        },
+      },
+    },
+    server: {
+      proxy: {
+        [env.VITE_APP_BASE_API]: {
+          target: env.VITE_SERVE,
+          // 需要代理跨域
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, ''),
         },
       },
     },

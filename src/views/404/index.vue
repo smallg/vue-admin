@@ -1,11 +1,5 @@
 <template>
-  <div>
-    404    
-  </div>
+  <div>404</div>
 </template>
-<script setup lang="ts">
-
-</script>
-<style lang="">
-  
-</style>
+<script setup lang="ts"></script>
+<style lang=""></style>

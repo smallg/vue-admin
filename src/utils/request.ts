@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
-// import useUserStore from '@/store/modules/user'
+import useUserStore from '@/store/modules/user'
 const request = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_API,
   timeout: 5000,
@@ -8,18 +8,16 @@ const request = axios.create({
 
 request.interceptors.request.use(
   (config) => {
-    // const userStore = useUserStore()
+    const userStore = useUserStore()
 
-    // if (userStore.token) {
-    //   config.headers.token = userStore.token
-    // }
+    if (userStore.token) {
+      config.headers.token = userStore.token
+    }
 
-    config.headers.token = 'test-token';
-
-    return config;
+    return config
   },
   (error) => {
-    return Promise.reject(error);
+    return Promise.reject(error)
   },
 )
 
@@ -54,7 +52,6 @@ request.interceptors.response.use(
     ElMessage({
       type: 'error',
       message,
-      duration: 100000000
     })
     return Promise.reject(error)
   },
