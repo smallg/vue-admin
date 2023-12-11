@@ -7,8 +7,8 @@ import Components from 'unplugin-vue-components/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 import { viteMockServe } from 'vite-plugin-mock';
-import DefineOptions from 'unplugin-vue-define-options/vite'
-import VueSetupExtend from 'vite-plugin-vue-setup-extend'
+import DefineOptions from 'unplugin-vue-define-options/vite';
+import VueSetupExtend from 'vite-plugin-vue-setup-extend';
 
 // https://vitejs.dev/config/
 export default ({ command, mode }: ConfigEnv): UserConfigExport => {

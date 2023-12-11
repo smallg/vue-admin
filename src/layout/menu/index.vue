@@ -1,14 +1,13 @@
 <script setup lang="ts" name="Menu">
-defineProps(['menuList'])
-
+defineProps(['menuList']);
 </script>
 <script lang="ts">
 export default {
-  name: 'Menu'
-}
+  name: 'Menu',
+};
 </script>
 <template>
-  <template v-for="(item) in menuList" :key="item.path">
+  <template v-for="item in menuList" :key="item.path">
     <template v-if="!item.children">
       <el-menu-item v-if="!item.meta.hidden" :index="item.path">
         <el-icon>
