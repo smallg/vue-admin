@@ -49,7 +49,7 @@ export const constantRoute = [
       hidden: true,
     },
   },
-]
+];
 
 export const asyncRoute = [
   {
@@ -148,7 +148,7 @@ export const asyncRoute = [
       },
     ],
   },
-]
+];
 
 export const anyRoute = {
   path: '/:pathMatch(.*)*',
@@ -158,4 +158,4 @@ export const anyRoute = {
     title: '任意路由',
     hidden: true,
   },
-}
+};

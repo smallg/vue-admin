@@ -18,18 +18,18 @@
 </template>
 
 <script setup lang="ts">
-import 'echarts-liquidfill'
-import * as echarts from 'echarts'
-import { ref, onMounted } from 'vue'
-let people = ref('215908人')
+import 'echarts-liquidfill';
+import * as echarts from 'echarts';
+import { ref, onMounted } from 'vue';
+let people = ref('215908人');
 
 //水球图拓展插件
 
 //获取节点
-let charts = ref()
+let charts = ref();
 onMounted(() => {
   //获取echarts类的实例
-  let mycharts = echarts.init(charts.value)
+  let mycharts = echarts.init(charts.value);
   //设置实例的配置项
   mycharts.setOption({
     //标题组件
@@ -67,8 +67,8 @@ onMounted(() => {
       top: 0,
       bottom: 0,
     },
-  })
-})
+  });
+});
 </script>
 
 <style scoped lang="scss">

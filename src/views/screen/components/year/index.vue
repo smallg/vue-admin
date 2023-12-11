@@ -9,14 +9,14 @@
 </template>
 
 <script setup lang="ts">
-import * as echarts from 'echarts'
-import { ref, onMounted } from 'vue'
+import * as echarts from 'echarts';
+import { ref, onMounted } from 'vue';
 //获取DOM节点
-let charts = ref()
+let charts = ref();
 //组件挂载完毕
 onMounted(() => {
   //一个容器可以同时展示多种类型的图形图标
-  let mychart = echarts.init(charts.value)
+  let mychart = echarts.init(charts.value);
   //设置配置项
   mychart.setOption({
     title: {
@@ -41,10 +41,7 @@ onMounted(() => {
     },
     series: {
       type: 'scatter',
-      data: [
-        33, 88, 21, 9, 88, 234, 113, 1231, 674, 3, 88, 33, 21, 888, 3332, 313,
-        123, 5, 657, 7,
-      ],
+      data: [33, 88, 21, 9, 88, 234, 113, 1231, 674, 3, 88, 33, 21, 888, 3332, 313, 123, 5, 657, 7],
       //标记图形设置
       symbol: 'diamond',
       symbolSize: 16,
@@ -76,8 +73,8 @@ onMounted(() => {
         },
       },
     },
-  })
-})
+  });
+});
 </script>
 
 <style scoped lang="scss">

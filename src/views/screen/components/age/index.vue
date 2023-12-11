@@ -10,13 +10,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted } from 'vue';
 //引入echarts
-import * as echarts from 'echarts'
-let charts = ref()
+import * as echarts from 'echarts';
+let charts = ref();
 //组件挂载完毕初始化图形图标
 onMounted(() => {
-  let mychart = echarts.init(charts.value)
+  let mychart = echarts.init(charts.value);
   //设置配置项
   let option = {
     tooltip: {
@@ -67,9 +67,9 @@ onMounted(() => {
       right: 0,
       bottom: 0,
     },
-  }
-  mychart.setOption(option)
-})
+  };
+  mychart.setOption(option);
+});
 </script>
 
 <style scoped lang="scss">

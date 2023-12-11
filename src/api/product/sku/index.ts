@@ -1,5 +1,5 @@
-import request from '@/utils/request'
-import type { SkuResponseData, SkuInfoData } from './type'
+import request from '@/utils/request';
+import type { SkuResponseData, SkuInfoData } from './type';
 enum API {
   SKU_URL = '/admin/product/list/',
   SALE_URL = '/admin/product/onSale/',
@@ -9,16 +9,12 @@ enum API {
 }
 
 export const reqSkuList = (page: number, limit: number) =>
-  request.get<any, SkuResponseData>(API.SKU_URL + `${page}/${limit}`)
+  request.get<any, SkuResponseData>(API.SKU_URL + `${page}/${limit}`);
 
-export const reqSaleSku = (skuId: number) =>
-  request.get<any, any>(API.SALE_URL + skuId)
+export const reqSaleSku = (skuId: number) => request.get<any, any>(API.SALE_URL + skuId);
 
-export const reqCancelSale = (skuId: number) =>
-  request.get<any, any>(API.CANCELSALE_URL + skuId)
+export const reqCancelSale = (skuId: number) => request.get<any, any>(API.CANCELSALE_URL + skuId);
 
-export const reqSkuInfo = (skuId: number) =>
-  request.get<any, SkuInfoData>(API.SKUINFO_URL + skuId)
+export const reqSkuInfo = (skuId: number) => request.get<any, SkuInfoData>(API.SKUINFO_URL + skuId);
 
-export const reqRemoveSku = (skuId: number) =>
-  request.delete<any, any>(API.DELETESKU_URL + skuId)
+export const reqRemoveSku = (skuId: number) => request.delete<any, any>(API.DELETESKU_URL + skuId);

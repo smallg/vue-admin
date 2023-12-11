@@ -1,5 +1,11 @@
 <script setup lang="ts" name="Menu">
 defineProps(['menuList'])
+
+</script>
+<script lang="ts">
+export default {
+  name: 'Menu'
+}
 </script>
 <template>
   <template v-for="(item) in menuList" :key="item.path">
@@ -13,13 +19,8 @@ defineProps(['menuList'])
         </template>
       </el-menu-item>
     </template>
-    <template
-      v-if="item.children && item.children.length === 1 && item.path === '/'"
-    >
-      <el-menu-item
-        v-if="!item.children[0].meta.hidden"
-        :index="item.children[0].path"
-      >
+    <template v-if="item.children && item.children.length === 1 && item.path === '/'">
+      <el-menu-item v-if="!item.children[0].meta.hidden" :index="item.children[0].path">
         <el-icon>
           <component :is="item.children[0].meta.icon"></component>
         </el-icon>
@@ -28,9 +29,7 @@ defineProps(['menuList'])
         </template>
       </el-menu-item>
     </template>
-    <template
-      v-if="item.children && item.children.length === 1 && item.path !== '/'"
-    >
+    <template v-if="item.children && item.children.length === 1 && item.path !== '/'">
       <el-sub-menu :index="item.path">
         <template #title>
           <el-icon>
@@ -39,10 +38,7 @@ defineProps(['menuList'])
           <span>{{ item.meta.title }}</span>
         </template>
 
-        <el-menu-item
-          v-if="!item.children[0].meta.hidden"
-          :index="item.children[0].path"
-        >
+        <el-menu-item v-if="!item.children[0].meta.hidden" :index="item.children[0].path">
           <el-icon>
             <component :is="item.children[0].meta.icon"></component>
           </el-icon>
@@ -52,10 +48,7 @@ defineProps(['menuList'])
         </el-menu-item>
       </el-sub-menu>
     </template>
-    <el-sub-menu
-      v-if="item.children && item.children.length > 1"
-      :index="item.path"
-    >
+    <el-sub-menu v-if="item.children && item.children.length > 1" :index="item.path">
       <template #title>
         <el-icon>
           <component :is="item.meta.icon"></component>

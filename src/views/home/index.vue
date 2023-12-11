@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { getTime } from '@/utils/time'
-import useUserStore from '@/store/modules/user'
+import { getTime } from '@/utils/time';
+import useUserStore from '@/store/modules/user';
 let userStore = useUserStore();
 </script>
 <template>
@@ -63,4 +63,5 @@ let userStore = useUserStore();
   margin-top: 30px;
   display: flex;
   justify-content: center;
-}</style>
+}
+</style>

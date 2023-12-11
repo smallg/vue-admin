@@ -9,14 +9,14 @@
 </template>
 
 <script setup lang="ts">
-import * as echarts from 'echarts'
-import { ref, onMounted } from 'vue'
+import * as echarts from 'echarts';
+import { ref, onMounted } from 'vue';
 //获取DOM节点
-let charts = ref()
+let charts = ref();
 //组件挂载完毕
 onMounted(() => {
   //一个容器可以同时展示多种类型的图形图标
-  let mychart = echarts.init(charts.value)
+  let mychart = echarts.init(charts.value);
   let option = {
     title: {
       text: '游客消费统计',
@@ -51,10 +51,10 @@ onMounted(() => {
         ],
       },
     ],
-  }
+  };
   //设置配置项
-  mychart.setOption(option)
-})
+  mychart.setOption(option);
+});
 </script>
 
 <style scoped lang="scss">

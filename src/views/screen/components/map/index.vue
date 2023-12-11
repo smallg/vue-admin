@@ -3,16 +3,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import * as echarts from 'echarts'
+import { ref, onMounted } from 'vue';
+import * as echarts from 'echarts';
 //引入中国地图的JSON数据
-import chinaJSON from './china.json'
+import chinaJSON from './china.json';
 //获取DOM元素
-let map = ref()
+let map = ref();
 //注册中国地图
-echarts.registerMap('china', chinaJSON as any)
+echarts.registerMap('china', chinaJSON as any);
 onMounted(() => {
-  let mychart = echarts.init(map.value)
+  let mychart = echarts.init(map.value);
   //设置配置项
   mychart.setOption({
     //地图组件
@@ -107,8 +107,8 @@ onMounted(() => {
         },
       },
     ],
-  })
-})
+  });
+});
 </script>
 
 <style scoped></style>

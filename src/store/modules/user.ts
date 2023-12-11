@@ -55,7 +55,7 @@ const useUserStore = defineStore('User', {
 
           router.addRoute(route);
           console.log('router', router);
-        }); 
+        });
         return 'ok';
       } else {
         return Promise.reject(new Error(res.data.message));

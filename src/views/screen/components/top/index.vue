@@ -15,30 +15,30 @@
 
 <script setup lang="ts">
 //@ts-ignore
-import moment from 'moment'
+import moment from 'moment';
 //点击首页按钮回到首页
-import { useRouter } from 'vue-router'
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { useRouter } from 'vue-router';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 //获取路由器对象
-let $router = useRouter()
+let $router = useRouter();
 
 //存储当前时间
-let time = ref(moment().format('YYYY年MM月DD日 hh:mm:ss'))
-let timer = ref(0)
+let time = ref(moment().format('YYYY年MM月DD日 hh:mm:ss'));
+let timer = ref(0);
 //按钮的点击回调
 const goHome = () => {
-  $router.push('/home')
-}
+  $router.push('/home');
+};
 //组件挂载完毕更新当前的事件
 onMounted(() => {
   timer.value = setInterval(() => {
-    time.value = moment().format('YYYY年MM月DD日 hh:mm:ss')
-  }, 1000)
-})
+    time.value = moment().format('YYYY年MM月DD日 hh:mm:ss');
+  }, 1000);
+});
 
 onBeforeUnmount(() => {
-  clearInterval(timer.value)
-})
+  clearInterval(timer.value);
+});
 </script>
 
 <style scoped lang="scss">

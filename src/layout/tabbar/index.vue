@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import BreadCrumb from './breadcrumb/index.vue'
-import Setting from './setting/index.vue'
+import BreadCrumb from './breadcrumb/index.vue';
+import Setting from './setting/index.vue';
 </script>
 <template>
   <el-header style="text-align: right; font-size: 12px">

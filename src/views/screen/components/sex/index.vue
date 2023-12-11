@@ -21,13 +21,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import * as echarts from 'echarts'
+import { ref, onMounted } from 'vue';
+import * as echarts from 'echarts';
 //获取图形图标的DOM节点
-let charts = ref()
+let charts = ref();
 onMounted(() => {
   //初始化echarts实例
-  let mycharts = echarts.init(charts.value)
+  let mycharts = echarts.init(charts.value);
   //设置配置项
   mycharts.setOption({
     //组件标题
@@ -78,8 +78,8 @@ onMounted(() => {
       right: 0,
       bottom: 0,
     },
-  })
-})
+  });
+});
 </script>
 
 <style scoped lang="scss">

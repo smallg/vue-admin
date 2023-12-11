@@ -1,23 +1,20 @@
 <script setup lang="ts">
-import Logo from './logo/index.vue'
-import Menu from './menu/index.vue'
-import TabBar from './tabbar/index.vue'
-import Main from './main/index.vue'
-import useLayOutSettingStore from '@/store/modules/setting'
-import useUserStore from '@/store/modules/user'
-import { useRoute } from 'vue-router'
+import Logo from './logo/index.vue';
+import Menu from './menu/index.vue';
+import TabBar from './tabbar/index.vue';
+import Main from './main/index.vue';
+import useLayOutSettingStore from '@/store/modules/setting';
+import useUserStore from '@/store/modules/user';
+import { useRoute } from 'vue-router';
 
-let userStore = useUserStore()
-let $route = useRoute()
+let userStore = useUserStore();
+let $route = useRoute();
 
-let LayOutSettingStore = useLayOutSettingStore()
+let LayOutSettingStore = useLayOutSettingStore();
 </script>
 <template>
   <el-container class="layout-container-demo" style="height: 100vh">
-    <el-aside
-      width="200px"
-      :class="{ isCollapse: LayOutSettingStore.isCollapse ? true : false }"
-    >
+    <el-aside width="200px" :class="{ isCollapse: LayOutSettingStore.isCollapse ? true : false }">
       <el-scrollbar>
         <el-menu
           :default-active="$route.path"
@@ -38,9 +35,7 @@ let LayOutSettingStore = useLayOutSettingStore()
       <el-main
         :style="{
           left: !LayOutSettingStore.isCollapse ? '200px' : '56px',
-          width: LayOutSettingStore.isCollapse
-            ? 'calc(100% - 56px)'
-            : 'calc(100% - 200px)',
+          width: LayOutSettingStore.isCollapse ? 'calc(100% - 56px)' : 'calc(100% - 200px)',
         }"
       >
         <el-scrollbar>

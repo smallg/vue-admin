@@ -1,38 +1,33 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import {
-  Refresh,
-  Setting,
-  FullScreen,
-  ArrowDown,
-} from '@element-plus/icons-vue'
-import useLayOutSettingStore from '@/store/modules/setting'
-let layoutSettingStore = useLayOutSettingStore()
-import useUserStore from '@/store/modules/user'
-import { useRouter, useRoute } from 'vue-router'
-let $router = useRouter()
-let $route = useRoute()
-let userStore = useUserStore()
-let dark = ref<boolean>(false)
+import { ref } from 'vue';
+import { Refresh, Setting, FullScreen, ArrowDown } from '@element-plus/icons-vue';
+import useLayOutSettingStore from '@/store/modules/setting';
+let layoutSettingStore = useLayOutSettingStore();
+import useUserStore from '@/store/modules/user';
+import { useRouter, useRoute } from 'vue-router';
+let $router = useRouter();
+let $route = useRoute();
+let userStore = useUserStore();
+let dark = ref<boolean>(false);
 const updateRefsh = () => {
-  layoutSettingStore.refsh = !layoutSettingStore.refsh
-}
+  layoutSettingStore.refsh = !layoutSettingStore.refsh;
+};
 
 const fullScreen = () => {
-  let full = document.fullscreenElement
+  let full = document.fullscreenElement;
   if (!full) {
-    document.documentElement.requestFullscreen()
+    document.documentElement.requestFullscreen();
   } else {
-    document.exitFullscreen()
+    document.exitFullscreen();
   }
-}
+};
 
 const logout = async () => {
-  await userStore.userLogout()
-  $router.push({ path: '/login', query: { redirect: $route.path } })
-}
+  await userStore.userLogout();
+  $router.push({ path: '/login', query: { redirect: $route.path } });
+};
 
-const color = ref('rgba(255, 69, 0, 0.68)')
+const color = ref('rgba(255, 69, 0, 0.68)');
 const predefineColors = ref([
   '#ff4500',
   '#ff8c00',
@@ -48,17 +43,17 @@ const predefineColors = ref([
   'hsl(181, 100%, 37%)',
   'hsla(209, 100%, 56%, 0.73)',
   '#c7158577',
-])
+]);
 
 const changeDark = () => {
-  let html = document.documentElement
-  dark.value ? (html.className = 'dark') : (html.className = '')
-}
+  let html = document.documentElement;
+  dark.value ? (html.className = 'dark') : (html.className = '');
+};
 
 const setColor = () => {
-  let html = document.documentElement
-  html.style.setProperty('--el-color-primary', color.value)
-}
+  let html = document.documentElement;
+  html.style.setProperty('--el-color-primary', color.value);
+};
 </script>
 <template>
   <el-button circle size="small" :icon="Refresh" @click="updateRefsh" />
@@ -69,8 +64,14 @@ const setColor = () => {
         <el-color-picker v-model="color" show-alpha :predefine="predefineColors" size="small" @change="setColor" />
       </el-form-item>
       <el-form-item label="暗黑模式">
-        <el-switch v-model="dark" size="small" inline-prompt active-icon="MoonNight" inactive-icon="Sunny"
-          @change="changeDark" />
+        <el-switch
+          v-model="dark"
+          size="small"
+          inline-prompt
+          active-icon="MoonNight"
+          inactive-icon="Sunny"
+          @change="changeDark"
+        />
       </el-form-item>
     </el-form>
     <template #reference>

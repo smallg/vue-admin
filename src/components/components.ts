@@ -1,3 +1,3 @@
-export { DefPagination } from './Pagination'
-export { DefSvgIcon } from './SvgIcon'
-export { DefCategory } from './Category'
+export { DefPagination } from './Pagination';
+export { DefSvgIcon } from './SvgIcon';
+export { DefCategory } from './Category';

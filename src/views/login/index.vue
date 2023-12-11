@@ -4,7 +4,7 @@ import { User, Lock, Warning } from '@element-plus/icons-vue';
 import { ElNotification } from 'element-plus';
 import { getTime } from '@/utils/time';
 import { useRouter, useRoute } from 'vue-router';
-import useUserStore from '@/store/modules/user'
+import useUserStore from '@/store/modules/user';
 
 let $router = useRouter();
 let $route = useRoute();
@@ -22,48 +22,47 @@ const loginForm = reactive({
 });
 
 const refreshCode = () => {
-  identifyCode.value = ''
-  makeCode(identifyCode, 4)
+  identifyCode.value = '';
+  makeCode(identifyCode, 4);
 };
 
 const makeCode = (_o: Ref<any>, l: number) => {
   for (let i = 0; i < l; i++) {
-    identifyCode.value +=
-      identifyCodes.value[randomNum(0, identifyCodes.value.length)]
+    identifyCode.value += identifyCodes.value[randomNum(0, identifyCodes.value.length)];
   }
 };
 
 const randomNum = (min: number, max: number) => {
-  return Math.floor(Math.random() * (max - min) + min)
+  return Math.floor(Math.random() * (max - min) + min);
 };
 
 const validatorUsername = (_rule: any, value: any, callback: any) => {
   if (value.length === 0) {
-    callback(new Error('请输入账号'))
+    callback(new Error('请输入账号'));
   } else {
-    callback()
+    callback();
   }
 };
 
 const validatorPassword = (_rule: any, value: any, callback: any) => {
   if (value.length === 0) {
-    callback(new Error('请输入密码'))
+    callback(new Error('请输入密码'));
   } else if (value.length < 6 || value.length > 16) {
-    callback(new Error('密码应为6~16位的任意组合'))
+    callback(new Error('密码应为6~16位的任意组合'));
   } else {
-    callback()
+    callback();
   }
 };
 
 const validatorVerifyCode = (_rule: any, value: any, callback: any) => {
   if (value.length === 0) {
-    callback(new Error('请输入验证码'))
+    callback(new Error('请输入验证码'));
   } else if (value.length < 4) {
-    callback(new Error('请输入正确的验证码'))
+    callback(new Error('请输入正确的验证码'));
   } else if (identifyCode.value !== value) {
-    callback(new Error('请输入正确的验证码'))
+    callback(new Error('请输入正确的验证码'));
   } else if (identifyCode.value === value) {
-    callback()
+    callback();
   }
 };
 
@@ -92,24 +91,23 @@ const login = async () => {
   await loginForms.value.validate();
   loading.value = true;
   try {
-    await useStore.userLogin(loginForm)
-    let redirect: string = $route.query.redirect as string
-    $router.push({ path: redirect || '/' })
+    await useStore.userLogin(loginForm);
+    let redirect: string = $route.query.redirect as string;
+    $router.push({ path: redirect || '/' });
     ElNotification({
       type: 'success',
       message: '登陆成功',
       title: `Hi, ${getTime()}好`,
-    })
-    loading.value = false
+    });
+    loading.value = false;
   } catch (error) {
     loading.value = false;
     ElNotification({
       type: 'error',
       message: (error as Error).message,
-    })
+    });
   }
-}
-
+};
 </script>
 <template>
   <div class="login_container">
@@ -119,16 +117,34 @@ const login = async () => {
         <el-card class="login_form">
           <el-form :model="loginForm" :rules="rules" ref="loginForms">
             <el-form-item prop="username">
-              <el-input :prefix-icon="User" v-model="loginForm.username" clearable placeholder="Username"
-                size="large"></el-input>
+              <el-input
+                :prefix-icon="User"
+                v-model="loginForm.username"
+                clearable
+                placeholder="Username"
+                size="large"
+              ></el-input>
             </el-form-item>
             <el-form-item prop="password">
-              <el-input type="password" :prefix-icon="Lock" show-password v-model="loginForm.password" size="large"
-                placeholder="Password" clearable></el-input>
+              <el-input
+                type="password"
+                :prefix-icon="Lock"
+                show-password
+                v-model="loginForm.password"
+                size="large"
+                placeholder="Password"
+                clearable
+              ></el-input>
             </el-form-item>
             <el-form-item prop="verifyCode">
-              <el-input :prefix-icon="Warning" show-password v-model="loginForm.verifyCode" placeholder="VerifyCode"
-                size="large" maxlength="4">
+              <el-input
+                :prefix-icon="Warning"
+                show-password
+                v-model="loginForm.verifyCode"
+                placeholder="VerifyCode"
+                size="large"
+                maxlength="4"
+              >
                 <template #append>
                   <Identify :identifyCode="identifyCode" @click="refreshCode" />
                 </template>

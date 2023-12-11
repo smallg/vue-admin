@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import setting from '@/setting'
+import setting from '@/setting';
 </script>
 <template>
   <div class="logo" v-if="setting.logoHidden">

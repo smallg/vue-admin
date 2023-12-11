@@ -1,7 +1,7 @@
-import Category from './src/index.vue'
+import Category from './src/index.vue';
 
-import { withInstall } from '../../utils/withInstall'
+import { withInstall } from '../../utils/withInstall';
 
-export const DefCategory = withInstall(Category)
+export const DefCategory = withInstall(Category);
 
-export default DefCategory
+export default DefCategory;

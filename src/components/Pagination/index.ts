@@ -5,10 +5,10 @@
  * @LastEditors: Huccct
  * @LastEditTime: 2023-05-17 20:44:47
  */
-import Pagination from './src/index.vue'
+import Pagination from './src/index.vue';
 
-import { withInstall } from '../../utils/withInstall'
+import { withInstall } from '../../utils/withInstall';
 
-export const DefPagination = withInstall(Pagination)
+export const DefPagination = withInstall(Pagination);
 
-export default DefPagination
+export default DefPagination;

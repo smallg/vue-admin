@@ -24,7 +24,7 @@ defineProps({
     type: String,
     default: '16px',
   },
-})
+});
 </script>
 <template>
   <svg :style="{ width, height }">

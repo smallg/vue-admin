@@ -10,7 +10,7 @@ import 'virtual:svg-icons-register';
 import globalComponent from '@/components';
 import '@/styles/index.scss';
 import router from './router';
-import  pinia from './store';
+import pinia from './store';
 import './permission';
 
 const app = createApp(App);

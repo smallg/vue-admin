@@ -1,7 +1,7 @@
-import SvgIcon from './src/index.vue'
+import SvgIcon from './src/index.vue';
 
-import { withInstall } from '../../utils/withInstall'
+import { withInstall } from '../../utils/withInstall';
 
-export const DefSvgIcon = withInstall(SvgIcon)
+export const DefSvgIcon = withInstall(SvgIcon);
 
-export default DefSvgIcon
+export default DefSvgIcon;

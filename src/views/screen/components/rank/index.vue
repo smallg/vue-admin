@@ -10,14 +10,14 @@
 </template>
 
 <script setup lang="ts">
-import * as echarts from 'echarts'
-import { ref, onMounted } from 'vue'
+import * as echarts from 'echarts';
+import { ref, onMounted } from 'vue';
 //获取DOM节点
-let charts = ref()
+let charts = ref();
 //组件挂载完毕
 onMounted(() => {
   //一个容器可以同时展示多种类型的图形图标
-  let mychart = echarts.init(charts.value)
+  let mychart = echarts.init(charts.value);
   //设置配置项
   mychart.setOption({
     //标题组件
@@ -93,16 +93,8 @@ onMounted(() => {
           //柱条颜色
           color: function (data: any) {
             //给每一个柱条这是背景颜色
-            let arr = [
-              'red',
-              'orange',
-              'yellowgreen',
-              'green',
-              'purple',
-              'hotpink',
-              'skyblue',
-            ]
-            return arr[data.dataIndex]
+            let arr = ['red', 'orange', 'yellowgreen', 'green', 'purple', 'hotpink', 'skyblue'];
+            return arr[data.dataIndex];
           },
         },
       },
@@ -151,16 +143,8 @@ onMounted(() => {
           //柱条颜色
           color: function (data: any) {
             //给每一个柱条这是背景颜色
-            let arr = [
-              'red',
-              'orange',
-              'yellowgreen',
-              'green',
-              'purple',
-              'hotpink',
-              'skyblue',
-            ]
-            return arr[data.dataIndex]
+            let arr = ['red', 'orange', 'yellowgreen', 'green', 'purple', 'hotpink', 'skyblue'];
+            return arr[data.dataIndex];
           },
         },
       },
@@ -168,8 +152,8 @@ onMounted(() => {
     tooltip: {
       backgroundColor: 'rgba(50,50,50,0.7)',
     },
-  })
-})
+  });
+});
 </script>
 
 <style scoped lang="scss">
